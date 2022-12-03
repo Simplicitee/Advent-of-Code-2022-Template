@@ -1,5 +1,7 @@
 use std::{io::{Lines, BufReader}, fs::File};
 
+// Edit this file :)
+
 // Make sure to put both input datas into their files!
 
 // Use this function to solve part one of the puzzle

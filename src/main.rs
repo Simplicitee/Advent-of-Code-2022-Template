@@ -3,6 +3,8 @@ use lib::*;
 
 mod lib;
 
+// NO NEED TO EDIT THIS FILE (but feel free to do so)
+
 // Make sure to put both input datas into their files!
 
 fn main() {
