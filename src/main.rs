@@ -1,28 +1,30 @@
 use std::{io::{Lines, BufReader, BufRead}, fs::File, path::Path};
-use lib::*;
+use solver::*;
 
-mod lib;
+mod solver;
 
 // NO NEED TO EDIT THIS FILE (but feel free to do so)
 
-// Make sure to put both input datas into their files!
+// IMPORTANT: Make sure to put both input datas into their files
+// The data for the example solution to the puzzle goes in the example file
+// The data for your solution goes into the solving file
+
+const EXAMPLE: &str = "src/inputs/example.txt";
+const SOLVING: &str = "src/inputs/solving.txt";
 
 fn main() {
-    println!("Test Answers: (do I match the example from the puzzle?)");
-    println!("- Part 1: {}", part_one(read_lines("src/inputs/example.txt")));
-    println!("- Part 2: {}", part_two(read_lines("src/inputs/example.txt")));
+    println!("Test Answers: (do I match the answers to the example from the puzzle?)");
+    println!("- Part 1: {}", part_one(read_lines(EXAMPLE)));
+    println!("- Part 2: {}", part_two(read_lines(EXAMPLE)));
     println!();
-
-    println!("Answers:");
-    println!("- Part 1: {}", part_one(read_lines("src/inputs/solving.txt")));
-    println!("- Part 2: {}", part_two(read_lines("src/inputs/solving.txt")));
+    println!("Your Answers: (put these into the answer after testing your solutions)");
+    println!("- Part 1: {}", part_one(read_lines(SOLVING)));
+    println!("- Part 2: {}", part_two(read_lines(SOLVING)));
 }
 
-fn read_lines<P>(filename: P) -> Lines<BufReader<File>>
-where P: AsRef<Path>, {
-    let file = match File::open(filename) {
-        Err(why) => panic!("couldn't open file: {}", why),
+fn read_lines<P>(filename: P) -> Lines<BufReader<File>> where P: AsRef<Path> {
+    BufReader::new(match File::open(filename) {
+        Err(err) => panic!("Error while opening '{}': {}", filename, err),
         Ok(file) => file,
-    };
-    BufReader::new(file).lines()
+    }).lines()
 }
