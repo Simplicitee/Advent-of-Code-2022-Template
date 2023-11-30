@@ -24,7 +24,7 @@ fn main() {
 
 fn read_lines<P>(filename: P) -> Lines<BufReader<File>> where P: AsRef<Path> {
     BufReader::new(match File::open(filename) {
-        Err(err) => panic!("Error while opening '{}': {}", filename, err),
+        Err(err) => panic!("Error while opening file: {}", err),
         Ok(file) => file,
     }).lines()
 }
