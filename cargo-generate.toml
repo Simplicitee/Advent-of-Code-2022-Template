@@ -1,5 +1,5 @@
 [template]
-cargo_generate_version = "0.17.3"
+cargo_generate_version = ">=0.17.3"
 
 [placeholders]
 day = {type = "string", prompt = "What day are you on? (dd; e.g. 01, 25, 14, etc)"}
